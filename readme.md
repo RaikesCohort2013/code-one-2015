@@ -12,6 +12,6 @@
 #### Database setup
 
  - Migrate the database (`python manage.py migrate`)
- - Load existing data (`python loaddata data.json`)
+ - Load existing data (`python manage.py loaddata data.json`)
  - Navigate to http://127.0.0.1:8000/admin
  - Login as admin (user/pass: admin)
