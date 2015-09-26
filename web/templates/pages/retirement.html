@@ -40,17 +40,29 @@
 <h1>Graphs</h1>
 
 <div id="savingsChart" style="height: 250px;"></div>
-<p>This chart displays the return you can expect if you saved <span data-bind="text: monthlyAddition"></span> each month and your money earned %7 annually.</p>
+<p>This chart displays the return you can expect if you saved <span data-bind="text: monthlyAddition"></span> each month and
+	your money earned <span data-bind="annualRate"></span>% annually.</p>
 
 <div class="row form-group">
 	<div class="col-xs-3">
-	    <input class="form-control"  data-bind="value: amount" />
+	    <p>Initial Investment: <input class="form-control"  data-bind="value: initialInvestment" /></p>
 	</div>
 	<div class="col-xs-3">
-	    <input class="form-control" data-bind="value: rate" />
+	    <p>Annual Rate (%): <input class="form-control" data-bind="value: annualRate" /></p>
 	</div>
 	<div class="col-xs-3">
-	    <input class="form-control" data-bind="value: period" />
+	    <p>Number of Years: <input class="form-control" data-bind="value: numberYears" /></p>
+	</div>
+</div>
+<div class="row form-group">
+	<div class="col-xs-3">
+	    <p>Times Interest Compounded Yearly: <input class="form-control"  data-bind="value: numberOfTimesCompoundedYearly" /></p>
+	</div>
+	<div class="col-xs-3">
+	    <p><br/>Monthly Addition: <input class="form-control" data-bind="value: monthlyAddition" /></p>
+	</div>
+	<div class="col-xs-3">
+	    <p><br/>Expected Total: <input class="form-control" data-bind="value: compoundInterest" /></p>
 	</div>
 </div>
 

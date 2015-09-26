@@ -10,6 +10,13 @@ var retirementModel = function () {
 	self.basicIraVisible = ko.observable(false);
 	self.moreIraVisible = ko.observable(false);
 
+	self.monthlyAddition = ko.observable(100);
+	self.initialInvestment = ko.observable(100);
+	self.annualRate = ko.observable(1.0);
+	self.numberYears = ko.observable(10);
+	self.numberOfTimesCompoundedYearly = ko.observable(1);
+	self.coumpoundInterestValues = ko.observableArray([]);
+
 	self.showMoreIra = function () {
 		self.moreIraVisible(!self.moreIraVisible());
 	};
@@ -52,10 +59,38 @@ var retirementModel = function () {
 		xkey: 'year',
 		xLabels: ["year"],
 		ykeys: ['value'],
-		labels: ['Value', 'Year'],
+		labels: ['Value'],
 		lineColors: ['#17ce6c'],
 		parseTime: false
 	});
+
+	self.compoundInterest = ko.computed(function () {
+		var values = [];
+		if (years >= 1) values.push(computeCompoundForYear(1))
+		if (years >= 5) values.push(computeCompoundForYear(5));
+		if (years >= 10) values.push(computeCompoundForYear(10));
+		if (years >= 20) values.push(computeCompoundForYear(20));
+		if (years >= 50) values.push(computeCompoundForYear(50));
+
+		var compoundInterest = computeCompoundForYear(self.numberYears());
+		if (years != 1 && years != 5 && years != 10 && years != 20 && years != 50) values.push(compoundInterest);
+
+		return compoundInterest;
+	});
+
+	function computeCompoundForYear(years) {
+		var compoundInterestForPrincipal = self.initialInvestment()
+			* Math.pow(
+				(1 + (self.annualRate() / 100 / self.numberOfTimesCompoundedYearly())),
+				self.numberOfTimesCompoundedYearly() * years
+			);
+
+		var futureValueOfASeries = self.monthlyAddition()
+			* ((Math.pow(1 + (self.annualRate() / 100 / self.numberOfTimesCompoundedYearly()), self.numberOfTimesCompoundedYearly() * years) - 1)
+			/ (self.annualRate() / 100 / self.numberOfTimesCompoundedYearly()));
+
+		return compoundInterestForPrincipal + futureValueOfASeries;
+	};
 };
 
 ko.applyBindings(new retirementModel());
