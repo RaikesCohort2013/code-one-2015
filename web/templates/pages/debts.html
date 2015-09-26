@@ -33,7 +33,7 @@
 
     <div class="tab-pane fade active in" id="quick-calc">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12" data-bind="with: debt">
                 <br>
                 <p>Use the follwing calculator to find out what your monthly payment will be with the given Amount, Period and Yearly Interest Rate.</p>
                 <form class="form-horizontal">
@@ -62,10 +62,17 @@
                             <input class="form-control" data-bind="value: rate" />
                         </div>
                         <div class="col-xs-3">
-                            <input class="form-control" disabled="" data-bind="value: payment" />
+                            <input class="form-control" disabled="" data-bind="value: paymentFormatted" />
                         </div>
                     </div>
                 </form>
+                <div data-bind="morris: {type: 'Area',
+                                         data: area,
+                                         xkey: 'year',
+                                         ykeys: ['value'],
+                                         labels: ['Amount Owed'],
+                                         parseTime: false}">
+                </div>
             </div>
         </div>
     </div>
