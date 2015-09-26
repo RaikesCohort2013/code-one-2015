@@ -25,8 +25,8 @@
 <h1>Debt Calculations</h1>
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#quick-calc" data-toggle="tab" aria-expanded="true">Quick Calc</a></li>
-    <li class=""><a href="#debt-calc" data-toggle="tab" aria-expanded="false">Multiple Debt Calculator</a></li>
+    <li class="active"><a href="#quick-calc" data-toggle="tab" data-bind="click: changeGraph(0)" aria-expanded="true">Quick Calc</a></li>
+    <li class=""><a href="#debt-calc" data-toggle="tab" data-bind="click: changeGraph(1)" aria-expanded="false">Multiple Debt Calculator</a></li>
 </ul>
 
 <div id="calc-tabs" class="tab-content">
@@ -66,13 +66,6 @@
                         </div>
                     </div>
                 </form>
-                <div data-bind="morris: {type: 'Area',
-                                         data: area,
-                                         xkey: 'year',
-                                         ykeys: ['value'],
-                                         labels: ['Amount Owed'],
-                                         parseTime: false}">
-                </div>
             </div>
         </div>
     </div>
@@ -110,6 +103,26 @@
         </form>
     </div>
 
+</div>
+
+<div data-bind="morris: {type: 'Area',
+                         data: debt().area,
+                         xkey: 'year',
+                         ykeys: ['value'],
+                         labels: ['Amount Owed'],
+                         parseTime: false,
+                         hideHover: 'always',
+                         continuousLine: false}, visible: quickCalcVisible">
+</div>
+
+<div data-bind="morris: {type: 'Area',
+                         data: debtsChart,
+                         xkey: 'year',
+                         ykeys: ykeys,
+                         labels: ykeys,
+                         parseTime: false,
+                         hideHover: 'always',
+                         continuousLine: false}, visible: !quickCalcVisible()">
 </div>
 
 
