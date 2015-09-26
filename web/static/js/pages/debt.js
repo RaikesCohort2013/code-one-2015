@@ -54,6 +54,19 @@ function DebtsViewModel() {
     self.mortgageVisible = ko.observable(false);
     self.otherVisible = ko.observable(false);
 
+    self.fullAmount = ko.observable(10000);
+    self.fullPeriod = ko.observable(2);
+    self.fullRate = ko.observable(3.69);
+    self.fullPayment = ko.observable(432.87);
+
+    self.amountEnabled = ko.observable(true);
+    self.periodEnabled = ko.observable(true);
+    self.rateEnabled = ko.observable(true);
+    self.paymentEnabled = ko.observable(false);
+
+    self.selectedResult = ko.observable('');
+    self.resultOptions = ['Amount', 'Time (Years)', 'Monthly Payment'];
+
     self.showStudent = function() {
         if(self.studentVisible()){
             self.linkTextStudent('Show More');
@@ -131,6 +144,70 @@ function DebtsViewModel() {
     self.changeTab = function(tab) {
         self.multipleDebtVisible(!self.multipleDebtVisible());
     }
+
+    self.changeResult = function() {
+        var selected = self.selectedResult();
+        if(selected == 'Amount'){
+            self.fullAmount(self.calculateAmount());
+            self.amountEnabled(false);
+            self.periodEnabled(true);
+            self.rateEnabled(true);
+            self.paymentEnabled(true);
+        } else if (selected == 'Time (Years)'){
+            self.fullPeriod(self.calculatePeriod());
+            self.amountEnabled(true);
+            self.periodEnabled(false);
+            self.rateEnabled(true);
+            self.paymentEnabled(true);
+        } else if (selected == 'Monthly Payment'){
+            self.fullPayment(self.calculatePayment());
+            self.amountEnabled(true);
+            self.periodEnabled(true);
+            self.rateEnabled(true);
+            self.paymentEnabled(false);
+        }
+    };
+
+    self.calculateAmount = function(){
+        var _time = self.fullPeriod();
+        var _payment = self.fullPayment();
+        var _rate = self.fullRate() / 1200;
+        var _amount = (_payment * (Math.pow((_rate + 1), _time) - 1)) / (_rate * Math.pow((1 + _rate), _time));
+        return _amount.toFixed(2);
+    };
+
+    self.calculatePeriod = function(){
+        var _payment = self.fullPayment();
+        var _rate = self.fullRate() / 1200;
+        var _amount = self.fullAmount();
+        var _pOverAR = _payment / (_rate * _amount);
+        var _time = Math.log(_pOverAR / (_pOverAR - 1)) / Math.log(1 + _rate);
+        return _time.toFixed(2);
+    };
+
+    self.calculatePayment = function(){
+        var _time = self.fullPeriod();
+        var _rate = self.fullRate() / 1200;
+        var _amount = self.fullAmount();
+        var _payment = (_amount * _rate * Math.pow((1 + _rate), _time)) / (Math.pow((1 + _rate), _time) - 1);
+        return _payment.toFixed(2);
+    };
+
+    self.fullPeriod.subscribe(function (oldValue) {
+        self.changeResult();
+    });
+
+    self.fullAmount.subscribe(function (oldValue) {
+        self.changeResult();
+    });    
+
+    self.fullRate.subscribe(function (oldValue) {
+        self.changeResult();
+    });
+
+    self.fullPayment.subscribe(function (oldValue) {
+        self.changeResult();
+    });
 }
 
 ko.applyBindings(new DebtsViewModel());
