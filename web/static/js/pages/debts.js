@@ -44,7 +44,7 @@ function Debt(amount, period, rate) {
 
 function DebtsViewModel() {
     var self = this;
-    self.quickCalcVisible = ko.observable(true);
+    self.multipleDebtVisible = ko.observable(false);
 
     self.linkTextStudent = ko.observable('Show More');
     self.linkTextMortgage = ko.observable('Show More');
@@ -128,17 +128,9 @@ function DebtsViewModel() {
         return graph;
     });
 
-    self.debts.subscribe(function (oldValue) {
-        self.debtsChart();
-    });
-
-    self.changeGraph = function (tab) {
-        if (tab === 0) {
-            self.quickCalcVisible(true);
-        } else if (tab === 1) {
-            self.quickCalcVisible(false);
-        }
-    };
+    self.changeTab = function(tab) {
+        self.multipleDebtVisible(!self.multipleDebtVisible());
+    }
 }
 
 ko.applyBindings(new DebtsViewModel());
