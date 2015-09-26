@@ -14,21 +14,43 @@
 
 	<div id="401k">
 		<h3>401k</h3>
-		<p data-bind="visible: basic401kVisible">Basic overview here...</p>
+		<p data-bind="visible: basic401kVisible">A 401(k) is typically offered by companies as a retirement savings option. A portion of your pre-tax salary each month will be deposited into a retirement account each month, and the company will typically match your investment. 401(k)s are very safe and reliable ways to save for retirement, especially because all deposits into a 401(k) account are tax deductible.</p>
 		<a href="" data-bind="click: show401k, text: linkText401k"></a>
 	</div>
 	<div id="ira">
 		<h3>IRAs</h3>
 		<div data-bind="visible: basicIraVisible">
-			<p>Basic overview</p>
-			<a id="viewMoreIra" href="" data-bind="click: showMoreIra">Learn more about IRAs</a>
-			<div data-bind="visible: moreIraVisible">Hello!</div>
+			<p>An IRA, or Individual Retirement Account, is very similar to a 401(k) in that they provide a tax-advantaged approach to saving for retirement. An IRA, however, provides a wider range of investment opportunities than a 401(k), giving the potential for greater returns.</p>
+			<a id="viewMoreIra" href="" data-bind="click: showMoreIra">Learn about types of IRAs</a>
+			<div data-bind="visible: moreIraVisible">
+				<h4>Traditional IRA</h4>
+				<p>In a Traditional IRA, any contributions are tax-deductible, and the funds will grow tax-deferred until withdrawl. Because most retirees are in a lower tax bracket than they were before retirement, the withdrawls will be taxed at a lower rate than they would have been when deposited.</p>
+
+				<h4>Roth IRA</h4>
+				<p>In a Roth IRA, contributions are made post-tax, but the funds will grow tax-free, and will have tax-free withdrawls.</p>
+
+				<h4>Rollover IRA</h4>
+				<p>In a Rollover IRA, money is "rolled over" from another retirement plan. Rollovers include moving assets from an employer-sponsored plan, such as a 401(k)</p>
+			</div>
 		</div>
 		<a href="" data-bind="click: showBasicIra, text: linkTextIra"></a>
 	</div>
 	<div id="investing">
 		<h3>Investing</h3>
-		<p data-bind="visible: basicInvestingVisible">Basic overview here...</p>
+		<div data-bind="visible: basicInvestingVisible">
+			<p data-bind="visible: basicInvestingVisible">There are several other types of investments that can be made, with large variation in rates of return and periods of investment.</p>
+			<a id="viewMoreInvesting" href="" data-bind="click: showMoreInvesting">Learn about common types of investing</a>
+			<div data-bind="visible: moreInvestingVisible">
+				<h4>Stocks</h4>
+				<p>Buying stock in publicly-traded companies is a very common and well-known investment. When a company wishes to raise money, they sell shares of their company to investors. The price is set by the estimated worth of the company, and is constantly changing. Investors buy and sell these stocks based on their expectations for the change in price of the stock. Most investors buy stock intending to hold onto it for several years, as the value of stocks tend upward. However, there is no guarantee of a profit when you buy stocks.</p>
+
+				<h4>Bonds</h4>
+				<p>Bonds are sold by companies and governments in order to raise funds for projects. Bonds can be thought of as small loans for which you are the lender. After a set period of time, the issuer of the bond will make periodical interest payments on the loan, based on a predetermined rate and schedule. After a set amount of time, the bond is said to mature, and the issuer repays the amount borrowed. Bonds are a very safe and dependable investment, as the returns are fixed and guaranteed. However, there is still a small chance that the bond will not be repaid, typically because the issuer filed for bankruptcy.</p>
+
+				<h4>Certificates of Deposit</h4>
+				<p>Certificates of deposit, or CDs, are promissory notes issued by banks. The holder is restricted from withdrawing funds from the account, but will recieve a much higher interest rate than a typical savings account. Institutions that offer CDs are backed by the FDIC, so even if the institution collapses, the investor is insured for up to $250,000. This makes CDs an incredibly reliable investment.</p>
+			</div>
+		</div>
 		<a href="" data-bind="click: showBasicInvesting, text: linkTextInvesting"></a>
 	</div>
 </div>
