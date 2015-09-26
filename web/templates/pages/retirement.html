@@ -4,7 +4,7 @@
 
 {% block summary %}
 
-<h1 style="color: #17ce6c">Planning for Retirement</h1>
+<h1 class="green-text">Planning for Retirement</h1>
 
 <div>
 	<p>
@@ -14,20 +14,32 @@
 	</p>
 	<p>A 401(k) is a retirements savings option provided by some employers. It provides a way for you to put pre-tax money into a savings account for retirement and accrue interest continuously. An IRA is similar to a 401k in that you place money in an account saving up for retirement. However, it is not related to an employer at all. Instead, you are responsible for making all contributions. Both can only be accessed without penalty at about age 59. More information about each of these savings options can be found below.</p>
 
-	<h2 style="color: #17ce6c">Ways to Save</h2>
+	<h2 class="green-text">Ways to Save</h2>
 
 	<div id="401k">
-		<h3>401k</h3>
+		<div class="row">
+            <div class="col-xs-6">
+                <h3>401(k)</h3>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary example-button" data-bind="click: load401kExample">Load Example</button>
+            </div>
+        </div>
 		<p data-bind="visible: basic401kVisible">A 401(k) is typically offered by companies as a retirement savings option. A portion of your pre-tax salary each month will be deposited into a retirement account each month, and the company will typically match your investment. 401(k)s are very safe and reliable ways to save for retirement, especially because all deposits into a 401(k) account are tax deductible. Some employers offer contribution matching, but what does that mean? It means that if you put in more of your salary into your 401(k),
-		your employer will match the amount you put in (up to a certain % of your salary usually). Contribution matching is extremely beneficial and it is highly recommended to contribute as much as possible to your 401(k).<br/><br/>
-		<button class="btn btn-primary" data-bind="click: load401kExample">Load 401(k) Example</button></p>
+		your employer will match the amount you put in (up to a certain % of your salary usually). Contribution matching is extremely beneficial and it is highly recommended to contribute as much as possible to your 401(k).</p>
 		<a href="" data-bind="click: show401k, text: linkText401k"></a>
 	</div>
 	<div id="ira">
-		<h3>IRAs</h3>
+		<div class="row">
+            <div class="col-xs-6">
+                <h3>IRAs</h3>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary example-button" data-bind="click: loadIRAExample">Load Example</button>
+            </div>
+        </div>
 		<div data-bind="visible: basicIraVisible">
-			<p>An IRA, or Individual Retirement Account, is very similar to a 401(k) in that they provide a tax-advantaged approach to saving for retirement. An IRA, however, provides a wider range of investment opportunities than a 401(k), giving the potential for greater returns.<br/><br/>
-				<button class="btn btn-primary" data-bind="click: loadIRAExample">Load IRA Example</button></p>
+			<p>An IRA, or Individual Retirement Account, is very similar to a 401(k) in that they provide a tax-advantaged approach to saving for retirement. An IRA, however, provides a wider range of investment opportunities than a 401(k), giving the potential for greater returns.</p>
 			<a id="viewMoreIra" href="" data-bind="click: showMoreIra">Learn about types of IRAs</a>
 			<div data-bind="visible: moreIraVisible">
 				<h4>Traditional IRA</h4>
@@ -49,7 +61,7 @@
 
 {% block graphs %}
 
-<h1 style="color: #17ce6c">Investment Returns</h1>
+<h1 class="green-text">Investment Returns</h1>
 
 <div data-bind="morris: { type: 'Line', data: coumpoundInterestValues, xkey: 'year', ykeys: ['value'], labels: ['Value'], parseTime: false }"></div>
 <p>This chart displays the return you can expect if you saved $<span data-bind="text: initialInvestment"></span> initially and saved $<span data-bind="text: monthlyAddition"></span> each month and

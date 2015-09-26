@@ -4,26 +4,36 @@
 
 {% block summary %}
 
-<h1 style="color: #17ce6c">Debt</h1>
+<h1 class="green-text">Debt</h1>
 
 <div>
-    <p>Responsibly managing debt is the single most important aspect to financial security</p>
+    <p>Responsibly managing debt is the single most important aspect to financial security.</p>
 
-    <h2 style="color: #17ce6c">Common Debts</h2>
+    <h2 class="green-text">Common Debts</h2>
 
     <div id="student">
-        <h3>Student Loans</h3>
-        <p data-bind="visible: studentVisible">Covering the costs of tuition while attending college can be difficult. To make ends meet, many students take loans. In the US, there is more than $1.2 trillion in outstanding debt, divided among 40 million borrowers, with an average balance of $29,000. Staying ahead of the curve is crucial for recent graduates. Use this page to calculate important information about what loan you should aim for. <br /> <br />
-            <button class="btn btn-primary" data-bind="click: studentDebtExample">Load Example</button>
-        </p>
+        <div class="row">
+            <div class="col-xs-6">
+                <h3>Student Loans</h3>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary example-button" data-bind="click: studentDebtExample">Load Example</button>
+            </div>
+        </div>
+        <p data-bind="visible: studentVisible">Covering the costs of tuition while attending college can be difficult. To make ends meet, many students take loans. In the US, there is more than $1.2 trillion in outstanding debt, divided among 40 million borrowers, with an average balance of $29,000. Staying ahead of the curve is crucial for recent graduates. Use this page to calculate important information about what loan you should aim for.</p>
         <a href="" data-bind="click: showStudent, text: linkTextStudent"></a>
     </div>
 
     <div id="Mortgage">
-        <h3>Mortgages</h3>
-        <p data-bind="visible: mortgageVisible">Owning a home is a very important step towards financial independence, but the burdens of mortgage payments put huge financial stresses on home buyers. Buying a home for the right price at the right time presents both a challenge and an opportunity for recent graduates. This page helps calculate everything you want to know about buying a home. <br /> <br />
-            <button class="btn btn-primary" data-bind="click: mortgageDebtExample">Load Example</button>
-        </p>
+        <div class="row">
+            <div class="col-xs-6">
+                <h3>Mortgages</h3>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary example-button" data-bind="click: mortgageDebtExample">Load Example</button>
+            </div>
+        </div>
+        <p data-bind="visible: mortgageVisible">Owning a home is a very important step towards financial independence, but the burdens of mortgage payments put huge financial stresses on home buyers. Buying a home for the right price at the right time presents both a challenge and an opportunity for recent graduates. This page helps calculate everything you want to know about buying a home.</p>
         <a href="" data-bind="click: showMortgage, text: linkTextMortgage"></a>
     </div>
 
@@ -38,7 +48,7 @@
 
 
 {% block graphs %}
-<h1 style="color: #17ce6c">Debt Calculations</h1>
+<h1 class="green-text">Debt Calculations</h1>
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#quick-calc" data-toggle="tab" data-bind="click: changeTab(0)" aria-expanded="true">Quick Calc</a></li>

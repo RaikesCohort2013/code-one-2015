@@ -4,35 +4,50 @@
 
 {% block summary %}
 
-<h1 style="color: #17ce6c">Investing your Earnings</h1>
+<h1 class="green-text">Investing Your Earnings</h1>
 
 <div id="investing">
 	<p>Investing your money responsibly and wisely is a great way to ensure financial security for the future.</p>
 	<p>There are several common types of investments that can be made, with large variation in rates of return and periods of investment.</p>
 
-	<h2 style="color: #17ce6c">Investments</h2>
+	<h2 class="green-text">Investments</h2>
 
 	<div id="stock">
-		<h3>Stocks</h3>
-		<p data-bind="visible: stocksVisible">Buying stock in publicly-traded companies is a very common and well-known investment. When a company wishes to raise money, they sell shares of their company to investors. The price is set by the estimated worth of the company, and is constantly changing. Investors buy and sell these stocks based on their expectations for the change in price of the stock. Most investors buy stock intending to hold onto it for several years, as the value of stocks tend upward. However, there is no guarantee of a profit when you buy stocks.
-        <br /> <br />
-            <button class="btn btn-primary" data-bind="click: stockExample">Load Example</button></p>
+        <div class="row">
+            <div class="col-xs-6">
+                <h3>Stocks</h3>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary example-button" data-bind="click: stockExample">Load Example</button>
+            </div>
+        </div>
+		<p data-bind="visible: stocksVisible">Buying stock in publicly-traded companies is a very common and well-known investment. When a company wishes to raise money, they sell shares of their company to investors. The price is set by the estimated worth of the company, and is constantly changing. Investors buy and sell these stocks based on their expectations for the change in price of the stock. Most investors buy stock intending to hold onto it for several years, as the value of stocks tend upward. However, there is no guarantee of a profit when you buy stocks.</p>
 		<a href="" data-bind="click: showStocks, text: linkTextStock"></a>
 	</div>
 
 	<div id="bond">
-		<h3>Bonds</h3>
-		<p data-bind="visible: bondsVisible">Bonds are sold by companies and governments in order to raise funds for projects. Bonds can be thought of as small loans for which you are the lender. After a set period of time, the issuer of the bond will make periodical interest payments on the loan, based on a predetermined rate and schedule. After a set amount of time, the bond is said to mature, and the issuer repays the amount borrowed. Bonds are a very safe and dependable investment, as the returns are fixed and guaranteed. However, there is still a small chance that the bond will not be repaid, typically because the issuer filed for bankruptcy.
-        <br /> <br />
-            <button class="btn btn-primary" data-bind="click: bondExample">Load Example</button></p>
+        <div class="row">
+            <div class="col-xs-6">
+                <h3>Bonds</h3>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary example-button" data-bind="click: bondExample">Load Example</button>
+            </div>
+        </div>
+		<p data-bind="visible: bondsVisible">Bonds are sold by companies and governments in order to raise funds for projects. Bonds can be thought of as small loans for which you are the lender. After a set period of time, the issuer of the bond will make periodical interest payments on the loan, based on a predetermined rate and schedule. After a set amount of time, the bond is said to mature, and the issuer repays the amount borrowed. Bonds are a very safe and dependable investment, as the returns are fixed and guaranteed. However, there is still a small chance that the bond will not be repaid, typically because the issuer filed for bankruptcy.</p>
 		<a href="" data-bind="click: showBonds, text: linkTextBond"></a>
 	</div>
 
 	<div id="cd">
-		<h3>Certificates of Deposit</h3>
-		<p data-bind="visible: cdsVisible">Certificates of deposit, or CDs, are promissory notes issued by banks. The holder is restricted from withdrawing funds from the account, but will recieve a much higher interest rate than a typical savings account. Institutions that offer CDs are backed by the FDIC, so even if the institution collapses, the investor is insured for up to $250,000. This makes CDs an incredibly reliable investment.
-        <br /> <br />
-            <button class="btn btn-primary" data-bind="click: cdExample">Load Example</button></p>
+        <div class="row">
+            <div class="col-xs-6">
+                <h3>CDs</h3>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary example-button" data-bind="click: cdExample">Load Example</button>
+            </div>
+        </div>
+		<p data-bind="visible: cdsVisible">Certificates of deposit, or CDs, are promissory notes issued by banks. The holder is restricted from withdrawing funds from the account, but will recieve a much higher interest rate than a typical savings account. Institutions that offer CDs are backed by the FDIC, so even if the institution collapses, the investor is insured for up to $250,000. This makes CDs an incredibly reliable investment.</p>
 		<a href="" data-bind="click: showCDs, text: linkTextCD"></a>
 	</div>
 </div>
@@ -40,7 +55,7 @@
 {% endblock %}
 
 {% block graphs %}
-<h1 style="color: #17ce6c">Investment Forecast</h1>
+<h1 class="green-text">Investment Forecast</h1>
 <p>Use this tool to compare mulitple investments to see which ones will bring you the greatest returns</p>
 <div class="row">
     <div class="col-xs-3">

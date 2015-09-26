@@ -7,8 +7,8 @@
 <div class="container">
 
     <div class="jumbotron">
-        <h1 style="color: #17ce6c">Future First</h1>
-        <h2>Planning for the future is hard. <span style="color: ">Future First</span> makes it <span style="color: #17ce6c">easy</span>.</h2>
+        <h1 class="green-text">Future First</h1>
+        <h2>Planning for the future is hard. <span class="green-text">Future First</span> makes it <span class="green-text">easy</span>.</h2>
         <p>Unsure about your financial future? Do you find yourself second-guessing your financial decisions? Future First is here to help educate you to take control of your financial future.</p>
     </div>
 
@@ -16,22 +16,26 @@
         <div class="col-sm-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Retirement Planning</h3>
+                    <h3 class="panel-title">Investments</h3>
                 </div>
                 <div class="panel-body">
-                    <p>It's never too early to start planning for retirement. Start planning today to secure a safe and enjoyable retirement.</p>
-                    <p><a class="btn btn-primary btn-lg" href="/retirement">Learn more</a></p>
+                    {% load staticfiles %}
+                    <p><img src="{% static "img/investment.jpg" %}"/></p>
+                    <p>Have some extra cash laying around? Invest in stocks bonds or other assets to get a return on that cash.</p>
+                    <p class="text-center"><a class="btn btn-primary btn-lg" href="/investment">Learn more</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Investments</h3>
+                    <h3 class="panel-title">Retirement Planning</h3>
                 </div>
                 <div class="panel-body">
-                    <p>Have some extra cash laying around? Invest in stocks bonds or other assets to get a return on that cash.</p>
-                    <p><a class="btn btn-primary btn-lg" href="/investment">Learn more</a></p>
+                    {% load staticfiles %}
+                    <p><img src="{% static "img/saving.jpg" %}"/></p>
+                    <p>It's never too early to start planning for retirement. Start planning today to secure a safe and enjoyable retirement.</p>
+                    <p class="text-center"><a class="btn btn-primary btn-lg" href="/retirement">Learn more</a></p>
                 </div>
             </div>
         </div>
@@ -41,8 +45,10 @@
                     <h3 class="panel-title">Debt Management</h3>
                 </div>
                 <div class="panel-body">
+                    {% load staticfiles %}
+                    <p><img src="{% static "img/calculator.jpg" %}"/></p>
                     <p>Debt is tough and interest rates are even tougher. Use our tool to visualize and plan your debt repayment.</p>
-                    <p><a class="btn btn-primary btn-lg" href="/debt">Learn more</a></p>
+                    <p class="text-center"><a class="btn btn-primary btn-lg" href="/debt">Learn more</a></p>
                 </div>
             </div>
         </div>

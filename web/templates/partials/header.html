@@ -9,13 +9,13 @@
                 <span class="icon-bar"></span>
             </button>
             {% load staticfiles %}
-            <a class="navbar-brand" href="https://www.firstnational.com/"><img src="{% static "img/first-national-logo2.png" %}"/></a>
+            <a class="navbar-brand" href="/"><span id="brand-name">Future First |</span><img src="{% static "img/first-national-logo2.png" %}" id="logo"/></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="/investment" class="large-text">Investments</a></li>
                 <li><a href="/retirement" class="large-text">Retirement</a></li>
-                <li><a href="/investment" class="large-text">Investment</a></li>
                 <li><a href="/debt" class="large-text">Debt</a></li>
             </ul> 
         </div>

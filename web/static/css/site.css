@@ -2,3 +2,24 @@
 	font-size: large;
 	transform: translateY(15%);
 }
+
+.green-text {
+	color: #17ce6c !important;
+}
+
+.example-button {
+	transform: translateY(45%);
+}
+
+#brand-name {
+	transform: translateY(15%);
+	top: 20%;
+	position: relative;
+	font-weight: bold;
+	float: left;
+	margin-right: 3px;
+}
+
+img {
+	max-width: 100%;
+}
