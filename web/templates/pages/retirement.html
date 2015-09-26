@@ -14,13 +14,15 @@
 
 	<div id="401k">
 		<h3>401k</h3>
-		<p data-bind="visible: basic401kVisible">A 401(k) is typically offered by companies as a retirement savings option. A portion of your pre-tax salary each month will be deposited into a retirement account each month, and the company will typically match your investment. 401(k)s are very safe and reliable ways to save for retirement, especially because all deposits into a 401(k) account are tax deductible.</p>
+		<p data-bind="visible: basic401kVisible">A 401(k) is typically offered by companies as a retirement savings option. A portion of your pre-tax salary each month will be deposited into a retirement account each month, and the company will typically match your investment. 401(k)s are very safe and reliable ways to save for retirement, especially because all deposits into a 401(k) account are tax deductible. <br/><br/>
+		<button class="btn btn-primary" data-bind="click: load401kExample">Load 401k Example</button></p>
 		<a href="" data-bind="click: show401k, text: linkText401k"></a>
 	</div>
 	<div id="ira">
 		<h3>IRAs</h3>
 		<div data-bind="visible: basicIraVisible">
-			<p>An IRA, or Individual Retirement Account, is very similar to a 401(k) in that they provide a tax-advantaged approach to saving for retirement. An IRA, however, provides a wider range of investment opportunities than a 401(k), giving the potential for greater returns.</p>
+			<p>An IRA, or Individual Retirement Account, is very similar to a 401(k) in that they provide a tax-advantaged approach to saving for retirement. An IRA, however, provides a wider range of investment opportunities than a 401(k), giving the potential for greater returns.<br/><br/>
+				<button class="btn btn-primary" data-bind="click: loadIRAExample">Load IRA Example</button></p>
 			<a id="viewMoreIra" href="" data-bind="click: showMoreIra">Learn about types of IRAs</a>
 			<div data-bind="visible: moreIraVisible">
 				<h4>Traditional IRA</h4>

@@ -83,6 +83,22 @@ var retirementModel = function () {
 			return { value: self.initialInvestment(), year: years };
 		}
 	};
+
+	self.load401kExample = function(){
+		self.monthlyAddition(1200);
+		self.initialInvestment(0);
+		self.annualRate(5.25);
+		self.numberYears(40);
+		self.numberOfTimesCompoundedYearly(1);
+	}
+
+	self.loadIRAExample = function(){
+		self.monthlyAddition(1100);
+		self.initialInvestment(2000);
+		self.annualRate(6.9);
+		self.numberYears(40);
+		self.numberOfTimesCompoundedYearly(1);
+	}
 };
 
 ko.applyBindings(new retirementModel());
