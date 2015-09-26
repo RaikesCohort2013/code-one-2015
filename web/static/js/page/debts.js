@@ -37,13 +37,13 @@ function DebtsViewModel() {
 
     self.studentDebtExample = function() {
         self.amount(26490);
-        self.time(10);
+        self.period(10);
         self.rate(4.29);
     }
 
     self.mortgageDebtExample = function() {
         self.amount(250000);
-        self.time(30);
+        self.period(30);
         self.rate(3.89);
     }
 }
