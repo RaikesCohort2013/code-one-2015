@@ -10,7 +10,40 @@
 
 
 {% block graphs %}
-
 <h1>Graphs</h1>
+<form class="form-horizontal">
+    <div class="row">
+        <div class="col-xs-3">
+            <h3>Amount</h3>
+        </div>
+        <div class="col-xs-3">
+            <h3>Monthly Interest Rate</h3>
+        </div>
+        <div class="col-xs-3">
+            <h3>Period</h3>
+        </div>
+    </div>
+    <div data-bind="foreach: debts">
+        <div class="row form-group">
+            <div class="col-xs-3">
+                <input class="form-control"  data-bind="value: amount" />
+            </div>
+            <div class="col-xs-3">
+                <input class="form-control" data-bind="value: rate" />
+            </div>
+            <div class="col-xs-3">
+                <input class="form-control" data-bind="value: period" />
+            </div>
+            <div class="col-xs-2">
+                <button class="btn btn-danger" data-bind="click: $parent.removeDebt">Remove</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<button class="btn btn-primary" data-bind="click: addDebt">Add Debt</button>
+
+{% load static %}
+<script src="{% static "js/debts.js" %}"></script>
 
 {% endblock %}
