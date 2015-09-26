@@ -53,13 +53,13 @@ function DebtsViewModel() {
     ]);
 
     self.addDebt = function() {
-        self.debts.push(new Debt(5000, 2, 3.5));
         self.ykeys.push("Debt" + self.ykeys().length);
+        self.debts.push(new Debt(5000, 2, 3.5));
     }
 
     self.removeDebt = function() {
+        self.ykeys.pop();
         self.debts.remove(this);
-        self.ykeys.remove(ykeys.length-1);
     }
 
     self.studentDebtExample = function() {
@@ -93,6 +93,10 @@ function DebtsViewModel() {
         }
         console.log(graph);
         return graph;
+    });
+
+    self.debts.subscribe(function (oldValue) {
+        self.debtsChart();
     });
 
     self.changeGraph = function (tab) {

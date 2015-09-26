@@ -73,7 +73,7 @@
     <div class="tab-pane fade" id="debt-calc">
         <form class="form-horizontal">
             <div class="row">
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <h3>Amount</h3>
                 </div>
                 <div class="col-xs-2">
@@ -82,13 +82,13 @@
                 <div class="col-xs-2">
                     <h3>Yearly Rate</h3>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <h3>Monthly Payment</h3>
                 </div>
             </div>
             <div data-bind="foreach: debts">
                 <div class="row form-group">
-                    <div class="col-xs-2">
+                    <div class="col-xs-3">
                         <input class="form-control"  data-bind="value: amount" />
                     </div>
                     <div class="col-xs-2">
@@ -97,7 +97,7 @@
                     <div class="col-xs-2">
                         <input class="form-control" data-bind="value: rate" />
                     </div>
-                    <div class="col-xs-2">
+                    <div class="col-xs-3">
                         <input class="form-control" disabled="" data-bind="value: paymentFormatted" />
                     </div>
                     <div class="col-xs-2">
