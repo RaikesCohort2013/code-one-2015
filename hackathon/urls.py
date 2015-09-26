@@ -8,5 +8,6 @@ from web import views
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index),
+    url(r'^future-planning/retirement/$', views.retirement),
     url(r'^debts/$', views.debts)
 )
