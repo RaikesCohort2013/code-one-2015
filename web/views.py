@@ -5,5 +5,5 @@ def index(request):
     return render(request, 'index.html')
 
 
-def loans(request):
-    return render(request, 'pages/loans.html')
+def debts(request):
+    return render(request, 'pages/debts.html')
