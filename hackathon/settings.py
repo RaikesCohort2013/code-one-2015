@@ -17,9 +17,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_seed',
-    'drf_generators',
-    'api',
     'web',
 )
 
