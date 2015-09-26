@@ -7,3 +7,6 @@ def index(request):
 
 def loans(request):
     return render(request, 'pages/loans.html')
+
+def retirement(request):
+	return render(request, 'pages/retirement.html')

@@ -1,0 +1,33 @@
+{% extends "page.html" %}
+
+{% block title %}Retirement{% endblock %}
+
+{% block summary %}
+
+<h1>Planning for Retirement</h1>
+
+<div>
+	You can never start planning for retirement too soon. 
+
+	<div id="401k">
+		<p>Basic overview here...</p>
+	</div>
+	<div id="ira">
+		<p>Basic overview</p>
+		<span id="viewMoreIra" data-bind="click: showMoreIra">Learn more about IRAs</span>
+		<div data-bind="visible: moreIraVisible">Hello!</div>
+	</div>
+</div>
+
+{% load static %}
+<script src="{% static "js/retirement.js" %}"></script>
+
+{% endblock %}
+
+{% block graphs %}
+
+<h1>Graphs</h1>
+
+<div id="someChart"></div>
+
+{% endblock %}
