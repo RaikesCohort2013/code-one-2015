@@ -18,7 +18,6 @@ function DebtsViewModel() {
     }
 
     self.payment = ko.computed(function(){
-        //TO-DO get this function working
         var interest = self.rate() / 100;
         var payment = (self.amount() * interest * Math.pow((1 + interest), self.period())) / (Math.pow((1 + interest), self.period()) - 1);
         return self.dollarDisplay(payment);
