@@ -142,7 +142,7 @@ function DebtsViewModel() {
     });
 
     self.changeTab = function(tab) {
-        self.multipleDebtVisible(!self.multipleDebtVisible());
+        self.multipleDebtVisible(tab === 1);
     }
 
     self.changeResult = function() {
