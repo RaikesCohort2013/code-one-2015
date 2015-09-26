@@ -9,5 +9,9 @@ def retirement(request):
 	return render(request, 'pages/retirement.html')
 
 
-def debts(request):
-    return render(request, 'pages/debts.html')
+def investment(request):
+    return render(request, 'pages/investment.html')
+
+
+def debt(request):
+    return render(request, 'pages/debt.html')

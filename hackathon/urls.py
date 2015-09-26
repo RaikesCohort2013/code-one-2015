@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index),
     url(r'^retirement/$', views.retirement),
-    url(r'^debts/$', views.debts)
+    url(r'^investment/$', views.investment),
+    url(r'^debt/$', views.debt)
 )
