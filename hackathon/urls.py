@@ -8,4 +8,5 @@ from web import views
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index),
+    url(r'^debt/student-loans/$', views.student_loans)
 )
