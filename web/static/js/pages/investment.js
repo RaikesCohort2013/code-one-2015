@@ -1,4 +1,5 @@
 
+
 var Investment = function(amount, period, rate){
     var self = this;
     self.amount = ko.observable(amount);
@@ -17,6 +18,41 @@ var Investment = function(amount, period, rate){
 
 var InvestmentViewModel = function() {
     var self = this;
+
+    self.linkTextStock = ko.observable('Show More');
+    self.linkTextBond = ko.observable('Show More');
+    self.linkTextCD = ko.observable('Show More');
+
+    self.stocksVisible = ko.observable(false);
+    self.bondsVisible = ko.observable(false);
+    self.cdsVisible = ko.observable(false);
+
+    self.showStocks = function () {
+        if (self.stocksVisible()){
+            self.linkTextStock('Show More');
+        } else {
+            self.linkTextStock('Show Less');
+        }
+        self.stocksVisible(!self.stocksVisible());
+    };
+
+    self.showBonds = function () {
+        if (self.bondsVisible()){
+            self.linkTextBond('Show More');
+        } else {
+            self.linkTextBond('Show Less');
+        }
+        self.bondsVisible(!self.bondsVisible());
+    };
+
+    self.showCDs = function () {
+        if (self.cdsVisible()){
+            self.linkTextCD('Show More');
+        } else {
+            self.linkTextCD('Show Less');
+        }
+        self.cdsVisible(!self.cdsVisible());
+    };
 
     self.investments = ko.observableArray([
         new Investment(10000, 10, 9)

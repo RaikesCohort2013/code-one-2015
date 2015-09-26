@@ -3,11 +3,8 @@ var retirementModel = function () {
 	var self = this;
 	self.linkText401k = ko.observable('Show More');
 	self.linkTextIra = ko.observable('Show More');
-	self.linkTextInvesting = ko.observable('Show More');
 
 	self.basic401kVisible = ko.observable(false);
-	self.basicInvestingVisible = ko.observable(false);
-	self.moreInvestingVisible = ko.observable(false);
 
 	self.basicIraVisible = ko.observable(false);
 	self.moreIraVisible = ko.observable(false);
@@ -38,17 +35,6 @@ var retirementModel = function () {
 		}
 		self.basicIraVisible(!self.basicIraVisible());
 	};
-	self.showBasicInvesting = function () {
-		if (self.basicInvestingVisible()) {
-			self.linkTextInvesting('Show More');
-		} else {
-			self.linkTextInvesting('Show Less');
-		}
-		self.basicInvestingVisible(!self.basicInvestingVisible());
-	};
-	self.showMoreInvesting = function () {
-		self.moreInvestingVisible(!self.moreInvestingVisible());
-	}
 
 	self.compoundInterest = ko.computed(function () {
 		var values = [];
