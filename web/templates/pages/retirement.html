@@ -7,20 +7,31 @@
 <h1>Planning for Retirement</h1>
 
 <div>
-	You can never start planning for retirement too soon. 
+	<p>You can never start planning for retirement too soon. </p>
+	<p>Save early, save often</p>
+
+	<h2>Ways to Save</h4>
 
 	<div id="401k">
-		<p>Basic overview here...</p>
+		<h3>401k</h3>
+		<p data-bind="visible: basic401kVisible">Basic overview here...</p>
+		<a href="" data-bind="click: show401k, text: linkText401k"></a>
 	</div>
 	<div id="ira">
-		<p>Basic overview</p>
-		<span id="viewMoreIra" data-bind="click: showMoreIra">Learn more about IRAs</span>
-		<div data-bind="visible: moreIraVisible">Hello!</div>
+		<h3>IRAs</h3>
+		<div data-bind="visible: basicIraVisible">
+			<p>Basic overview</p>
+			<a id="viewMoreIra" href="" data-bind="click: showMoreIra">Learn more about IRAs</a>
+			<div data-bind="visible: moreIraVisible">Hello!</div>
+		</div>
+		<a href="" data-bind="click: showBasicIra, text: linkTextIra"></a>
+	</div>
+	<div id="investing">
+		<h3>Investing</h3>
+		<p data-bind="visible: basicInvestingVisible">Basic overview here...</p>
+		<a href="" data-bind="click: showBasicInvesting, text: linkTextInvesting"></a>
 	</div>
 </div>
-
-{% load static %}
-<script src="{% static "js/retirement.js" %}"></script>
 
 {% endblock %}
 
@@ -28,6 +39,22 @@
 
 <h1>Graphs</h1>
 
-<div id="someChart"></div>
+<div id="savingsChart" style="height: 250px;"></div>
+<p>This chart displays the return you can expect if you saved <span data-bind="text: monthlyAddition"></span> each month and your money earned %7 annually.</p>
+
+<div class="row form-group">
+	<div class="col-xs-3">
+	    <input class="form-control"  data-bind="value: amount" />
+	</div>
+	<div class="col-xs-3">
+	    <input class="form-control" data-bind="value: rate" />
+	</div>
+	<div class="col-xs-3">
+	    <input class="form-control" data-bind="value: period" />
+	</div>
+</div>
+
+{% load static %}
+<script src="{% static "js/retirement.js" %}"></script>
 
 {% endblock %}
