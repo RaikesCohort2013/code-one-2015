@@ -43,6 +43,7 @@
 <ul class="nav nav-tabs">
     <li class="active"><a href="#quick-calc" data-toggle="tab" data-bind="click: changeTab(0)" aria-expanded="true">Quick Calc</a></li>
     <li class=""><a href="#debt-calc" data-toggle="tab" data-bind="click: changeTab(1)" aria-expanded="false">Multiple Debt Calculator</a></li>
+    <li class=""><a href="#full-calc" data-toggle="tab" data-bind="click: changeTab(2)" aria-expanded="false">Full Calculator</a></li>
 </ul>
 
 <div id="calc-tabs" class="tab-content">
@@ -140,6 +141,42 @@
                          labels: ykeys,
                          parseTime: false,
                          continuousLine: false}, visible: multipleDebtVisible()">
+    </div>
+
+    <div class="tab-pan fade" id="full-calc" data-bind="click: changeResult">
+        <select style="color: grey" data-bind="value: selectedResult, click: changeResult, options: resultOptions">
+        </select>
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="col-xs-3">
+                    <h3>Amount</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Time (Years)</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Yearly Rate</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Monthly Payment</h3>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-xs-3">
+                    <input id="full-amount" class="form-control"  data-bind="value: fullAmount, enable: amountEnabled" />
+                </div>
+                <div class="col-xs-3">
+                    <input id="full-period" class="form-control" data-bind="value: fullPeriod, enable: periodEnabled" />
+                </div>
+                <div class="col-xs-3">
+                    <input id="full-rate" class="form-control" data-bind="value: fullRate, enable: rateEnabled" />
+                </div>
+                <div class="col-xs-3">
+                    <input id="full-payment" class="form-control" data-bind="value: fullPayment, enable: paymentEnabled" />
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

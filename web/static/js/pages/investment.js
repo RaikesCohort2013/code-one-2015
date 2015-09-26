@@ -91,6 +91,21 @@ var InvestmentViewModel = function() {
         };
         return graph;
     });
+
+    self.stockExample = function() {
+        self.investments.push(new Investment(15000, 10, 6.9));
+        self.ykeys.push(self.ykeys().length);
+    }
+
+    self.bondExample = function() {
+        self.investments.push(new Investment(15000, 10, 4.9));
+        self.ykeys.push(self.ykeys().length);
+    }
+
+    self.cdExample = function() {
+        self.investments.push(new Investment(15000, 10, 2.9));
+        self.ykeys.push(self.ykeys().length);
+    }
 }
 
 
