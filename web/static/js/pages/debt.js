@@ -137,7 +137,6 @@ function DebtsViewModel() {
             }
             graph.push(element);
         }
-        console.log(graph);
         return graph;
     });
 
