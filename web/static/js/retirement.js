@@ -6,6 +6,7 @@ var retirementModel = function () {
 
 	self.basic401kVisible = ko.observable(false);
 	self.basicInvestingVisible = ko.observable(false);
+	self.moreInvestingVisible = ko.observable(false);
 
 	self.basicIraVisible = ko.observable(false);
 	self.moreIraVisible = ko.observable(false);
@@ -44,6 +45,9 @@ var retirementModel = function () {
 		}
 		self.basicInvestingVisible(!self.basicInvestingVisible());
 	};
+	self.showMoreInvesting = function () {
+		self.moreInvestingVisible(!self.moreInvestingVisible());
+	}
 
 	/*new Morris.Line({
 		element: 'savingsChart',
