@@ -10,7 +10,7 @@ function DebtsViewModel() {
     var self = this;
 
     self.amount = ko.observable(10000);
-    self.time = ko.observable(24);
+    self.period = ko.observable(24);
     self.rate = ko.observable(5.5);
 
     self.dollarDisplay = function(num){
@@ -19,7 +19,8 @@ function DebtsViewModel() {
 
     self.payment = ko.computed(function(){
         //TO-DO get this function working
-        var payment = 69;
+        var interest = self.rate() / 100;
+        var payment = (self.amount() * interest * Math.pow((1 + interest), self.period())) / (Math.pow((1 + interest), self.period()) - 1);
         return self.dollarDisplay(payment);
     });
 
