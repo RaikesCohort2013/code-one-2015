@@ -19,38 +19,89 @@
 
 
 {% block graphs %}
-<h1>Graphs</h1>
-<form class="form-horizontal">
-    <div class="row">
-        <div class="col-xs-3">
-            <h3>Amount</h3>
-        </div>
-        <div class="col-xs-3">
-            <h3>Monthly Interest Rate</h3>
-        </div>
-        <div class="col-xs-3">
-            <h3>Period</h3>
-        </div>
-    </div>
-    <div data-bind="foreach: debts">
-        <div class="row form-group">
-            <div class="col-xs-3">
-                <input class="form-control"  data-bind="value: amount" />
-            </div>
-            <div class="col-xs-3">
-                <input class="form-control" data-bind="value: rate" />
-            </div>
-            <div class="col-xs-3">
-                <input class="form-control" data-bind="value: period" />
-            </div>
-            <div class="col-xs-2">
-                <button class="btn btn-danger" data-bind="click: $parent.removeDebt">Remove</button>
-            </div>
-        </div>
-    </div>
-</form>
+<h1>Debt Calculations</h1>
 
-<button class="btn btn-primary" data-bind="click: addDebt">Add Debt</button>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#quick-calc" data-toggle="tab" aria-expanded="true">Quick Calc</a></li>
+    <li class=""><a href="#debt-calc" data-toggle="tab" aria-expanded="false">Debt Calc</a></li>
+</ul>
+
+<div id="calc-tabs" class="tab-content">
+
+    <div class="tab-pane fade active in" id="quick-calc">
+        <div class="row">
+            <div class="col-sm-12">
+                <br>
+                <p>Enter your values in three of the four following fields to calculate the fourth.</p>
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <h3>Amount</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <h3>Time (Months)</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <h3>Monthly Rate (%)</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <h3>Monthly Payment</h3>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-xs-3">
+                            <input class="form-control"  data-bind="value: amount" />
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" data-bind="value: time" />
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" data-bind="value: rate" />
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" disabled="" data-bind="value: payment" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="debt-calc">
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="col-xs-3">
+                    <h3>Amount</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Monthly Interest Rate</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Period</h3>
+                </div>
+            </div>
+            <div data-bind="foreach: debts">
+                <div class="row form-group">
+                    <div class="col-xs-3">
+                        <input class="form-control"  data-bind="value: amount" />
+                    </div>
+                    <div class="col-xs-3">
+                        <input class="form-control" data-bind="value: rate" />
+                    </div>
+                    <div class="col-xs-3">
+                        <input class="form-control" data-bind="value: period" />
+                    </div>
+                    <div class="col-xs-2">
+                        <button class="btn btn-danger" data-bind="click: $parent.removeDebt">Remove</button>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" data-bind="click: addDebt">Add Debt</button>
+        </form>
+    </div>
+
+</div>
+
 
 {% load static %}
 <script src="{% static "js/page/debts.js" %}"></script>

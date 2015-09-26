@@ -9,12 +9,26 @@ function Debt(amount, rate, period) {
 function DebtsViewModel() {
     var self = this;
 
+    self.amount = ko.observable(10000);
+    self.time = ko.observable(24);
+    self.rate = ko.observable(5.5);
+
+    self.dollarDisplay = function(num){
+        return  "$" + num.toFixed(2);
+    }
+
+    self.payment = ko.computed(function(){
+        //TO-DO get this function working
+        var payment = 69;
+        return self.dollarDisplay(payment);
+    });
+
     self.debts = ko.observableArray([
-        { amount: 0, rate: 0.0, period: 0 }
+        new Debt(5000, 3.5, 24)
     ]);
 
     self.addDebt = function() {
-        self.debts.push(new Debt(0, 0.0, 0));
+        self.debts.push(new Debt(5000, 3.5, 24));
     }
 
     self.removeDebt = function() {
