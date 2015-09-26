@@ -46,6 +46,39 @@ function DebtsViewModel() {
     var self = this;
     self.quickCalcVisible = ko.observable(true);
 
+    self.linkTextStudent = ko.observable('Show More');
+    self.linkTextMortgage = ko.observable('Show More');
+    self.linkTextOther = ko.observable('Show More');
+
+    self.studentVisible = ko.observable(false);
+    self.mortgageVisible = ko.observable(false);
+    self.otherVisible = ko.observable(false);
+
+    self.showStudent = function() {
+        if(self.studentVisible()){
+            self.linkTextStudent('Show More');
+        } else {
+            self.linkTextStudent('Show Less');
+        }
+        self.studentVisible(!self.studentVisible());
+    };
+    self.showMortgage = function () {
+        if(self.mortgageVisible()){
+            self.linkTextMortgage('Show More');
+        } else {
+            self.linkTextMortgage('Show Less');
+        }
+        self.mortgageVisible(!self.mortgageVisible());
+    };
+    self.showOther = function () {
+        if(self.otherVisible()){
+            self.linkTextOther('Show More');
+        } else {
+            self.linkTextOther('Show Less');
+        }
+        self.otherVisible(!self.otherVisible());
+    };
+
     self.debt = ko.observable(new Debt(10000, 2, 3.69));
 
     self.debts = ko.observableArray([
