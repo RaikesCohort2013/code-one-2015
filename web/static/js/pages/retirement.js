@@ -1,3 +1,4 @@
+
 var retirementModel = function () {
 	var self = this;
 	self.linkText401k = ko.observable('Show More');
@@ -49,38 +50,18 @@ var retirementModel = function () {
 		self.moreInvestingVisible(!self.moreInvestingVisible());
 	}
 
-	/*new Morris.Line({
-		element: 'savingsChart',
-
-		data: [
-			{ year: '0', value: 0 },
-		    { year: '5', value: 28754 },
-		    { year: '15', value: 125645 },
-		    { year: '25', value: 316245 },
-		    { year: '35', value: 691184 }
-		],
-	  
-		xkey: 'year',
-		xLabels: ["year"],
-		ykeys: ['value'],
-		labels: ['Value'],
-		lineColors: ['#17ce6c'],
-		parseTime: false
-	});*/
-
 	self.compoundInterest = ko.computed(function () {
 		var values = [];
 		var years = self.numberYears();
-		for (var i = 0; i < years - 1; i++) {
+		for (var i = 0; i <= years; i++) {
 			values.push(computeCompoundForYear(i));
 		}
-
-		var compoundInterest = computeCompoundForYear(years);
-		values.push(compoundInterest);
-
 		self.coumpoundInterestValues(values);
+		return values[values.length-1].value;
+	});
 
-		return compoundInterest.value;
+	self.compoundInterestFormatted = ko.computed(function(){
+		return "$" + self.compoundInterest();
 	});
 
 	function computeCompoundForYear(years) {
