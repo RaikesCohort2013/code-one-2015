@@ -45,7 +45,7 @@ var retirementModel = function () {
 		self.basicInvestingVisible(!self.basicInvestingVisible());
 	};
 
-	new Morris.Line({
+	/*new Morris.Line({
 		element: 'savingsChart',
 
 		data: [
@@ -62,34 +62,41 @@ var retirementModel = function () {
 		labels: ['Value'],
 		lineColors: ['#17ce6c'],
 		parseTime: false
-	});
+	});*/
 
 	self.compoundInterest = ko.computed(function () {
 		var values = [];
-		if (years >= 1) values.push(computeCompoundForYear(1))
-		if (years >= 5) values.push(computeCompoundForYear(5));
-		if (years >= 10) values.push(computeCompoundForYear(10));
-		if (years >= 20) values.push(computeCompoundForYear(20));
-		if (years >= 50) values.push(computeCompoundForYear(50));
+		var years = self.numberYears();
+		for (var i = 0; i < years - 1; i++) {
+			values.push(computeCompoundForYear(i));
+		}
 
-		var compoundInterest = computeCompoundForYear(self.numberYears());
-		if (years != 1 && years != 5 && years != 10 && years != 20 && years != 50) values.push(compoundInterest);
+		var compoundInterest = computeCompoundForYear(years);
+		values.push(compoundInterest);
 
-		return compoundInterest;
+		self.coumpoundInterestValues(values);
+
+		return compoundInterest.value;
 	});
 
 	function computeCompoundForYear(years) {
-		var compoundInterestForPrincipal = self.initialInvestment()
-			* Math.pow(
-				(1 + (self.annualRate() / 100 / self.numberOfTimesCompoundedYearly())),
-				self.numberOfTimesCompoundedYearly() * years
-			);
+		if (years > 0) {
+			var compoundInterestForPrincipal = self.initialInvestment()
+				* Math.pow(
+					(1 + (self.annualRate() / 100 / self.numberOfTimesCompoundedYearly())),
+					self.numberOfTimesCompoundedYearly() * years
+				);
 
-		var futureValueOfASeries = self.monthlyAddition()
-			* ((Math.pow(1 + (self.annualRate() / 100 / self.numberOfTimesCompoundedYearly()), self.numberOfTimesCompoundedYearly() * years) - 1)
-			/ (self.annualRate() / 100 / self.numberOfTimesCompoundedYearly()));
+			var futureValueOfASeries = self.monthlyAddition()
+				* ((Math.pow(1 + (self.annualRate() / 100 / self.numberOfTimesCompoundedYearly()), self.numberOfTimesCompoundedYearly() * years) - 1)
+				/ (self.annualRate() / 100 / self.numberOfTimesCompoundedYearly()));
 
-		return compoundInterestForPrincipal + futureValueOfASeries;
+			var total = compoundInterestForPrincipal + futureValueOfASeries
+
+			return { value: total.toFixed(2), year: years };
+		} else {
+			return { value: self.initialInvestment(), year: years };
+		}
 	};
 };
 
