@@ -1,0 +1,132 @@
+{% extends "page.html" %}
+
+{% block title %}Debts{% endblock %}
+
+{% block summary %}
+
+<h1>Debts</h1>
+
+<h2>Student Loans</h2>
+<p>Covering the costs of tuition while attending college can be difficult. To make ends meet, many students take loans. In the US, there is more than $1.2 trillion in outstanding debt, divided among 40 million borrowers, with an average balance of $29,000. Staying ahead of the curve is crucial for recent graduates. Use this page to calculate important information about what loan you should aim for.</p>
+<button class="btn btn-primary" data-bind="click: studentDebtExample">Load Example</button>
+
+<h2>Mortgages</h2>
+<p>Owning a home is a very important step towards financial independence, but the burdens of mortgage payments put huge financial stresses on home buyers. Buying a home for the right price at the right time presents both a challenge and an opportunity for recent graduates. This page helps calculate everything you want to know about buying a home.</p>
+<button class="btn btn-primary" data-bind="click: mortgageDebtExample">Load Example</button>
+
+<h2>Other Loans</h2>
+<p>Many other types of loans are taken by recent graduates. These include auto loans, personal loans, and small business loans. Finding a balance between taking the loans that you need and your income is challenging, but necessary for financial stability.</p>
+
+
+{% endblock %}
+
+
+{% block graphs %}
+<h1>Debt Calculations</h1>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#quick-calc" data-toggle="tab" data-bind="click: changeGraph(0)" aria-expanded="true">Quick Calc</a></li>
+    <li class=""><a href="#debt-calc" data-toggle="tab" data-bind="click: changeGraph(1)" aria-expanded="false">Multiple Debt Calculator</a></li>
+</ul>
+
+<div id="calc-tabs" class="tab-content">
+
+    <div class="tab-pane fade active in" id="quick-calc">
+        <div class="row">
+            <div class="col-sm-12" data-bind="with: debt">
+                <br>
+                <p>Use the follwing calculator to find out what your monthly payment will be with the given Amount, Period and Yearly Interest Rate.</p>
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <h3>Amount</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <h3>Time (Years)</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <h3>Yearly Rate</h3>
+                        </div>
+                        <div class="col-xs-3">
+                            <h3>Monthly Payment</h3>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-xs-3">
+                            <input class="form-control"  data-bind="value: amount" />
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" data-bind="value: period" />
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" data-bind="value: rate" />
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" disabled="" data-bind="value: paymentFormatted" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="debt-calc">
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="col-xs-3">
+                    <h3>Amount</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Monthly Interest Rate</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Period</h3>
+                </div>
+            </div>
+            <div data-bind="foreach: debts">
+                <div class="row form-group">
+                    <div class="col-xs-3">
+                        <input class="form-control"  data-bind="value: amount" />
+                    </div>
+                    <div class="col-xs-3">
+                        <input class="form-control" data-bind="value: rate" />
+                    </div>
+                    <div class="col-xs-3">
+                        <input class="form-control" data-bind="value: period" />
+                    </div>
+                    <div class="col-xs-2">
+                        <button class="btn btn-danger" data-bind="click: $parent.removeDebt">Remove</button>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" data-bind="click: addDebt">Add Debt</button>
+        </form>
+    </div>
+
+</div>
+
+<div data-bind="morris: {type: 'Area',
+                         data: debt().area,
+                         xkey: 'year',
+                         ykeys: ['value'],
+                         labels: ['Amount Owed'],
+                         parseTime: false,
+                         hideHover: 'always',
+                         continuousLine: false}, visible: quickCalcVisible">
+</div>
+
+<div data-bind="morris: {type: 'Area',
+                         data: debtsChart,
+                         xkey: 'year',
+                         ykeys: ykeys,
+                         labels: ykeys,
+                         parseTime: false,
+                         hideHover: 'always',
+                         continuousLine: false}, visible: !quickCalcVisible()">
+</div>
+
+
+{% load static %}
+<script src="{% static "js/page/debts.js" %}"></script>
+
+{% endblock %}
