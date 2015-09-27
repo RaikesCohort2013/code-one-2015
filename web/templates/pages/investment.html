@@ -74,29 +74,29 @@
 <h1 class="green-text">Investment Forecast</h1>
 <p>Use this tool to compare mulitple investments to see which ones will bring you the greatest returns</p>
 <div class="row">
-    <div class="col-xs-3">
+    <div class="col-xs-4">
         <h3>Amount</h3>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-3">
         <h3>Time (Years)</h3>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-3">
         <h3>Yearly Rate</h3>
     </div>
 </div>
 <div data-bind="foreach: investments">
     <div class="row form-group">
-        <div class="col-xs-3">
+        <div class="col-xs-4">
             <input class="form-control"  data-bind="value: amount" />
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-3">
             <input class="form-control" data-bind="value: period" />
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-3">
             <input class="form-control" data-bind="value: rate" />
         </div>
-        <div class="col-xs-2">
-            <button class="btn btn-danger" data-bind="click: $parent.removeInvestment">Remove</button>
+        <div class="col-xs-1">
+            <button class="btn btn-sm btn-danger" data-bind="click: $parent.removeInvestment">X</button>
         </div>
     </div>
 </div>
