@@ -228,7 +228,7 @@ $(document).ready(function () {
     quickCalc = $('#quick-calc');
     fullCalc = $('#full-calc');
     fullCalcTab = $('#full-calc-tab');
-    debtCalc = $('#debtCalc');
+    debtCalc = $('#debt-calc');
     debtCalcTab = $('#debt-calc-tab');
 });
 
