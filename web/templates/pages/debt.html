@@ -6,7 +6,7 @@
 
 <h1 class="green-text">Debt</h1>
 <p>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#videoModal">Watch the Video</button>
+    <button class="btn video-button" data-toggle="modal" data-target="#videoModal">Watch the Video</button>
 </p>
 <div class="modal" id="videoModal">
     <div class="modal-dialog">
@@ -67,9 +67,9 @@
 <h1 class="green-text">Debt Calculations</h1>
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#quick-calc" data-toggle="tab" data-bind="click: changeTab(0)" aria-expanded="true">Quick Calc</a></li>
-    <li class=""><a href="#debt-calc" data-toggle="tab" data-bind="click: changeTab(1)" aria-expanded="false">Multiple Debt Calculator</a></li>
-    <li class=""><a href="#full-calc" data-toggle="tab" data-bind="click: changeTab(2)" aria-expanded="false">Full Calculator</a></li>
+    <li class="active" id="quick-calc-tab"><a href="#quick-calc" data-toggle="tab" data-bind="click: changeTab(0)" aria-expanded="true">Quick Calc</a></li>
+    <li class="" id="debt-calc-tab"><a href="#debt-calc" data-toggle="tab" data-bind="click: changeTab(1)" aria-expanded="false">Multiple Debt Calculator</a></li>
+    <li class="" id="full-calc-tab"><a href="#full-calc" data-toggle="tab" data-bind="click: changeTab(2)" aria-expanded="false">Full Calculator</a></li>
 </ul>
 
 <div id="calc-tabs" class="tab-content">

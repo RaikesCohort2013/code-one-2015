@@ -109,10 +109,22 @@ function DebtsViewModel() {
     }
 
     self.studentDebtExample = function() {
+        changeToFirstTab();
         self.debt(new Debt(26490, 10, 4.29));
     }
 
+    function changeToFirstTab() {
+        debtCalc.removeClass("in").removeClass("active");
+        debtCalcTab.removeClass("active");
+        fullCalc.removeClass("in").removeClass("active");
+        fullCalcTab.removeClass("active");
+        quickCalcTab.addClass("active");
+        quickCalc.addClass("active").addClass("in");
+        self.changeTab(0);
+    }
+
     self.mortgageDebtExample = function() {
+        changeToFirstTab();
         self.debt(new Debt(250000, 30, 3.89));
     }
 
@@ -208,5 +220,16 @@ function DebtsViewModel() {
         self.changeResult();
     });
 }
+
+var quickCalcTab, quickCalc, fullCalcTab, fullCalc, debtCalc, debtCalcTab;
+
+$(document).ready(function () {
+    quickCalcTab = $('#quick-calc-tab');
+    quickCalc = $('#quick-calc');
+    fullCalc = $('#full-calc');
+    fullCalcTab = $('#full-calc-tab');
+    debtCalc = $('#debtCalc');
+    debtCalcTab = $('#debt-calc-tab');
+});
 
 ko.applyBindings(new DebtsViewModel());

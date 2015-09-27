@@ -108,5 +108,4 @@ var InvestmentViewModel = function() {
     }
 }
 
-
 ko.applyBindings(new InvestmentViewModel());

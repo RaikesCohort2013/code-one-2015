@@ -13,3 +13,7 @@ ko.bindingHandlers.fadeVisible = {
 
 var readDescription = "Read Description";
 var hideDescription = "Hide Description";
+
+$(document).ready(function () {
+    $('.content').delay(100).animate({ opacity: 1 }, 400);
+});

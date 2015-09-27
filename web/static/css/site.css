@@ -11,6 +11,10 @@
 	transform: translateY(45%);
 }
 
+.video-button {
+	background-color: #555;
+}
+
 #brand-name {
 	transform: translateY(15%);
 	top: 20%;
@@ -31,4 +35,8 @@ hr {
 
 .btn-blue {
 	background-color: #0b6284;
+}
+
+.content {
+	opacity: 0;
 }
