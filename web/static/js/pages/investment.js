@@ -82,7 +82,7 @@ var InvestmentViewModel = function() {
         var graph = [];
         var investments = self.investments();
         var years = self.maxYears();
-        for (var i = 0; i < years; i++) {
+        for (var i = 0; i <= years; i++) {
             var element = { year: i }
             for (var j = 0; j < investments.length; j++) {
                  element[self.ykeys()[j]] = investments[j].valueAtYear(i);
