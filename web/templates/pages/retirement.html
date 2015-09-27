@@ -5,6 +5,22 @@
 {% block summary %}
 
 <h1 class="green-text">Planning for Retirement</h1>
+<p>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#videoModal">Watch the Video</button>
+</p>
+<div class="modal" id="videoModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="margin-top:-12px;">×</button>
+            </div>
+            <div class="modal-body">
+                {% load staticfiles %}
+                <img src="{% static "img/retirement-video.png" %}"/>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div>
 	<p>
@@ -62,7 +78,7 @@
 
 {% block graphs %}
 
-<h1 class="green-text">Investment Returns</h1>
+<h1 class="green-text">Retirement Account Value</h1>
 
 <div data-bind="morris: { type: 'Line', data: coumpoundInterestValues, xkey: 'year', ykeys: ['value'], labels: ['Value'], parseTime: false }"></div>
 <p>This chart displays the return you can expect if you saved $<span data-bind="text: initialInvestment"></span> initially and saved $<span data-bind="text: monthlyAddition"></span> each month and
