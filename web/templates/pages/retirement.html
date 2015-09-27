@@ -78,7 +78,7 @@
 
 {% block graphs %}
 
-<h1 class="green-text">Investment Returns</h1>
+<h1 class="green-text">Retirement Account Value</h1>
 
 <div data-bind="morris: { type: 'Line', data: coumpoundInterestValues, xkey: 'year', ykeys: ['value'], labels: ['Value'], parseTime: false }"></div>
 <p>This chart displays the return you can expect if you saved $<span data-bind="text: initialInvestment"></span> initially and saved $<span data-bind="text: monthlyAddition"></span> each month and
