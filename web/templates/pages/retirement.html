@@ -28,7 +28,7 @@
 		the less you have to think about it. Compounding interest on 401(k)s and IRAs are a great way to accrue money for the future.
 		But what the heck is a 401(k) or an IRA?
 	</p>
-	<p>A 401(k) is a retirements savings option provided by some employers. It provides a way for you to put pre-tax money into a savings account for retirement and accrue interest continuously. An IRA is similar to a 401k in that you place money in an account saving up for retirement. However, it is not related to an employer at all. Instead, you are responsible for making all contributions. Both can only be accessed without penalty at about age 59. More information about each of these savings options can be found below.</p>
+	<!--<p>A 401(k) is a retirements savings option provided by some employers. It provides a way for you to put pre-tax money into a savings account for retirement and accrue interest continuously. An IRA is similar to a 401k in that you place money in an account saving up for retirement. However, it is not related to an employer at all. Instead, you are responsible for making all contributions. Both can only be accessed without penalty at about age 59. More information about each of these savings options can be found below.</p>!-->
 
 	<h2 class="green-text">Ways to Save</h2>
 
@@ -42,7 +42,7 @@
             </div>
         </div>
         <a href="" data-bind="click: show401k, text: linkText401k"></a>
-		<p data-bind="visible: basic401kVisible">A 401(k) is typically offered by companies as a retirement savings option. A portion of your pre-tax salary each month will be deposited into a retirement account each month, and the company will typically match your investment. 401(k)s are very safe and reliable ways to save for retirement, especially because all deposits into a 401(k) account are tax deductible. Some employers offer contribution matching, but what does that mean? It means that if you put in more of your salary into your 401(k),
+		<p data-bind="fadeVisible: basic401kVisible">A 401(k) is typically offered by companies as a retirement savings option. A portion of your pre-tax salary each month will be deposited into a retirement account each month, and the company will typically match your investment. 401(k)s are very safe and reliable ways to save for retirement, especially because all deposits into a 401(k) account are tax deductible. Some employers offer contribution matching, but what does that mean? It means that if you put in more of your salary into your 401(k),
 		your employer will match the amount you put in (up to a certain % of your salary usually). Contribution matching is extremely beneficial and it is highly recommended to contribute as much as possible to your 401(k).</p>
 	</div>
     <hr/>
@@ -56,10 +56,10 @@
             </div>
         </div>
         <a href="" data-bind="click: showBasicIra, text: linkTextIra"></a>
-		<div data-bind="visible: basicIraVisible">
+		<div data-bind="fadeVisible: basicIraVisible">
 			<p>An IRA, or Individual Retirement Account, is very similar to a 401(k) in that they provide a tax-advantaged approach to saving for retirement. An IRA, however, provides a wider range of investment opportunities than a 401(k), giving the potential for greater returns.</p>
             <a id="viewMoreIra" href="" data-bind="click: showMoreIra">Learn about types of IRAs</a>
-			<div data-bind="visible: moreIraVisible">
+			<div data-bind="fadeVisible: moreIraVisible">
 				<h4>Traditional IRA</h4>
 				<p>In a Traditional IRA, any contributions are tax-deductible, and the funds will grow tax-deferred until withdrawl. Because most retirees are in a lower tax bracket than they were before retirement, the withdrawls will be taxed at a lower rate than they would have been when deposited.</p>
 

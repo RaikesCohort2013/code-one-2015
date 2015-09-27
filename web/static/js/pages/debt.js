@@ -46,9 +46,9 @@ function DebtsViewModel() {
     var self = this;
     self.multipleDebtVisible = ko.observable(false);
 
-    self.linkTextStudent = ko.observable('Show More');
-    self.linkTextMortgage = ko.observable('Show More');
-    self.linkTextOther = ko.observable('Show More');
+    self.linkTextStudent = ko.observable(readDescription);
+    self.linkTextMortgage = ko.observable(readDescription);
+    self.linkTextOther = ko.observable(readDescription);
 
     self.studentVisible = ko.observable(false);
     self.mortgageVisible = ko.observable(false);
@@ -69,25 +69,25 @@ function DebtsViewModel() {
 
     self.showStudent = function() {
         if(self.studentVisible()){
-            self.linkTextStudent('Show More');
+            self.linkTextStudent(readDescription);
         } else {
-            self.linkTextStudent('Show Less');
+            self.linkTextStudent(hideDescription);
         }
         self.studentVisible(!self.studentVisible());
     };
     self.showMortgage = function () {
         if(self.mortgageVisible()){
-            self.linkTextMortgage('Show More');
+            self.linkTextMortgage(readDescription);
         } else {
-            self.linkTextMortgage('Show Less');
+            self.linkTextMortgage(hideDescription);
         }
         self.mortgageVisible(!self.mortgageVisible());
     };
     self.showOther = function () {
         if(self.otherVisible()){
-            self.linkTextOther('Show More');
+            self.linkTextOther(readDescription);
         } else {
-            self.linkTextOther('Show Less');
+            self.linkTextOther(hideDescription);
         }
         self.otherVisible(!self.otherVisible());
     };
