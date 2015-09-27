@@ -16,6 +16,7 @@
  - Navigate to http://127.0.0.1:8000/admin
  - Login as admin (user/pass: admin)
 
+### Project Description
 
 #### Inspiration
 
@@ -44,3 +45,12 @@ A major accomplishment we are proud of is the incorporation of the complex finan
 We learned a lot about using Knockout.js to create responsive web applications. Coming into the competition, only one member of our team had experience with Knockout. Now, each team member feels confident using Knockout.
 
 We also learned how difficult product development can be. It is easy to try to add too many features to a project, and it can be even more difficult to decide on the correct project in the first place. It is especially hard to create a product that people want to use and will benefit from using.
+
+
+### Screenshots
+
+![](screenshots/landing-page.png)
+![](screenshots/investment-page.png)
+![](screenshots/retirement-page.png)
+![](screenshots/debt-page.png)
+![](screenshots/debt-page-multiple.png)
