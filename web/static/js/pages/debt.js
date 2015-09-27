@@ -7,7 +7,7 @@ function Debt(amount, period, rate) {
 
     self.dollarDisplay = function(num){
         return  "$" + num.toFixed(2);
-    }
+    };
 
     self.payment = ko.computed(function(){
         var interest = self.rate() / 1200;
@@ -101,17 +101,17 @@ function DebtsViewModel() {
     self.addDebt = function() {
         self.ykeys.push("Debt" + self.ykeys().length);
         self.debts.push(new Debt(5000, 2, 3.5));
-    }
+    };
 
     self.removeDebt = function() {
         self.ykeys.pop();
         self.debts.remove(this);
-    }
+    };
 
     self.studentDebtExample = function() {
         changeToFirstTab();
         self.debt(new Debt(26490, 10, 4.29));
-    }
+    };
 
     function changeToFirstTab() {
         debtCalc.removeClass("in").removeClass("active");
@@ -121,12 +121,12 @@ function DebtsViewModel() {
         quickCalcTab.addClass("active");
         quickCalc.addClass("active").addClass("in");
         self.changeTab(0);
-    }
+    };
 
     self.mortgageDebtExample = function() {
         changeToFirstTab();
         self.debt(new Debt(250000, 30, 3.89));
-    }
+    };
 
     self.ykeys = ko.observableArray(["Debt0"]);
 
@@ -154,7 +154,7 @@ function DebtsViewModel() {
 
     self.changeTab = function(tab) {
         self.multipleDebtVisible(tab === 1);
-    }
+    };
 
     self.changeResult = function() {
         var selected = self.selectedResult();

@@ -3,6 +3,7 @@
 {% block title %}Future First | Planning for your future{% endblock %}
 
 {% block body %}
+{% load staticfiles %}
 
 <div class="container">
 
@@ -19,7 +20,6 @@
                     <h3 class="panel-title">Investments</h3>
                 </div>
                 <div class="panel-body">
-                    {% load staticfiles %}
                     <p><img src="{% static "img/investment.jpg" %}"/></p>
                     <p>Have some extra cash laying around? Invest in stocks, bonds, or other assets to get a return on that cash.</p>
                     <p class="text-center"><a class="btn btn-primary btn-lg" href="/investment">Learn more</a></p>
