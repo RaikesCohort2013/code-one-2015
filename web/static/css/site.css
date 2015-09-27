@@ -11,6 +11,10 @@
 	transform: translateY(45%);
 }
 
+.video-button {
+	background-color: #555;
+}
+
 #brand-name {
 	transform: translateY(15%);
 	top: 20%;

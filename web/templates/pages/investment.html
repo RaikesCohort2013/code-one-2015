@@ -8,7 +8,7 @@
 
 <div id="investing">
     <p>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#videoModal">Watch the Video</button>
+        <button class="btn video-button" data-toggle="modal" data-target="#videoModal">Watch the Video</button>
     </p>
 	<p>Investing your money responsibly and wisely is a great way to ensure financial security for the future.</p>
 	<p>There are several common types of investments that can be made, with large variation in rates of return and periods of investment.</p>
@@ -108,7 +108,8 @@
                          ykeys: ykeys,
                          labels: ykeys,
                          parseTime: false,
-                         continuousLine: true}">
+                         continuousLine: true }">
+ </div>
 
 {% load static %}
 <script src="{% static "js/pages/investment.js" %}"></script>
