@@ -19,9 +19,9 @@ var Investment = function(amount, period, rate){
 var InvestmentViewModel = function() {
     var self = this;
 
-    self.linkTextStock = ko.observable('Show More');
-    self.linkTextBond = ko.observable('Show More');
-    self.linkTextCD = ko.observable('Show More');
+    self.linkTextStock = ko.observable(readDescription);
+    self.linkTextBond = ko.observable(readDescription);
+    self.linkTextCD = ko.observable(readDescription);
 
     self.stocksVisible = ko.observable(false);
     self.bondsVisible = ko.observable(false);
@@ -29,27 +29,27 @@ var InvestmentViewModel = function() {
 
     self.showStocks = function () {
         if (self.stocksVisible()){
-            self.linkTextStock('Show More');
+            self.linkTextStock(readDescription);
         } else {
-            self.linkTextStock('Show Less');
+            self.linkTextStock(hideDescription);
         }
         self.stocksVisible(!self.stocksVisible());
     };
 
     self.showBonds = function () {
         if (self.bondsVisible()){
-            self.linkTextBond('Show More');
+            self.linkTextBond(readDescription);
         } else {
-            self.linkTextBond('Show Less');
+            self.linkTextBond(hideDescription);
         }
         self.bondsVisible(!self.bondsVisible());
     };
 
     self.showCDs = function () {
         if (self.cdsVisible()){
-            self.linkTextCD('Show More');
+            self.linkTextCD(readDescription);
         } else {
-            self.linkTextCD('Show Less');
+            self.linkTextCD(hideDescription);
         }
         self.cdsVisible(!self.cdsVisible());
     };

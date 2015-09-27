@@ -1,8 +1,8 @@
 
 var retirementModel = function () {
 	var self = this;
-	self.linkText401k = ko.observable('Show More');
-	self.linkTextIra = ko.observable('Show More');
+	self.linkText401k = ko.observable(readDescription);
+	self.linkTextIra = ko.observable(readDescription);
 
 	self.basic401kVisible = ko.observable(false);
 
@@ -21,17 +21,17 @@ var retirementModel = function () {
 	};
 	self.show401k = function () {
 		if (self.basic401kVisible()) {
-			self.linkText401k('Show More');
+			self.linkText401k(readDescription);
 		} else {
-			self.linkText401k('Show Less');
+			self.linkText401k(hideDescription);
 		}
 		self.basic401kVisible(!self.basic401kVisible());
 	};
 	self.showBasicIra = function () {
 		if (self.basicIraVisible()) {
-			self.linkTextIra('Show More');
+			self.linkTextIra(readDescription);
 		} else {
-			self.linkTextIra('Show Less');
+			self.linkTextIra(hideDescription);
 		}
 		self.basicIraVisible(!self.basicIraVisible());
 	};
