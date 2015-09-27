@@ -36,8 +36,8 @@
                 <button class="btn btn-primary example-button" data-bind="click: studentDebtExample">Load Example</button>
             </div>
         </div>
-        <p data-bind="visible: studentVisible">Covering the costs of tuition while attending college can be difficult. To make ends meet, many students take loans. In the US, there is more than $1.2 trillion in outstanding debt, divided among 40 million borrowers, with an average balance of $29,000. Staying ahead of the curve is crucial for recent graduates. Use this page to calculate important information about what loan you should aim for.</p>
         <a href="" data-bind="click: showStudent, text: linkTextStudent"></a>
+        <p data-bind="visible: studentVisible">Covering the costs of tuition while attending college can be difficult. To make ends meet, many students take loans. In the US, there is more than $1.2 trillion in outstanding debt, divided among 40 million borrowers, with an average balance of $29,000. Staying ahead of the curve is crucial for recent graduates. Use this page to calculate important information about what loan you should aim for.</p>
     </div>
     <hr/>
     <div id="Mortgage">
@@ -49,14 +49,14 @@
                 <button class="btn btn-primary example-button" data-bind="click: mortgageDebtExample">Load Example</button>
             </div>
         </div>
-        <p data-bind="visible: mortgageVisible">Owning a home is a very important step towards financial independence, but the burdens of mortgage payments put huge financial stresses on home buyers. Buying a home for the right price at the right time presents both a challenge and an opportunity for recent graduates. This page helps calculate everything you want to know about buying a home.</p>
         <a href="" data-bind="click: showMortgage, text: linkTextMortgage"></a>
+        <p data-bind="visible: mortgageVisible">Owning a home is a very important step towards financial independence, but the burdens of mortgage payments put huge financial stresses on home buyers. Buying a home for the right price at the right time presents both a challenge and an opportunity for recent graduates. This page helps calculate everything you want to know about buying a home.</p>
     </div>
     <hr/>
     <div id="Other">
         <h3>Other Loans</h3>
-        <p data-bind="visible: otherVisible">Many other types of loans are taken by recent graduates. These include auto loans, personal loans, and small business loans. Finding a balance between taking the loans that you need and your income is challenging, but necessary for financial stability.</p>
         <a href="" data-bind="click: showOther, text: linkTextOther"></a>
+        <p data-bind="visible: otherVisible">Many other types of loans are taken by recent graduates. These include auto loans, personal loans, and small business loans. Finding a balance between taking the loans that you need and your income is challenging, but necessary for financial stability.</p>
     </div>
 </div>
 
@@ -123,42 +123,40 @@
     </div>
 
     <div class="tab-pane fade" id="debt-calc">
-        <form class="form-horizontal">
-            <div class="row">
+        <p><br/><button class="btn btn-primary" data-bind="click: addDebt">Add Debt</button></p>
+        <div class="row">
+            <div class="col-xs-3">
+                <h3>Amount</h3>
+            </div>
+            <div class="col-xs-2">
+                <h3>Time (Years)</h3>
+            </div>
+            <div class="col-xs-2">
+                <h3>Yearly Rate</h3>
+            </div>
+            <div class="col-xs-3">
+                <h3>Monthly Payment</h3>
+            </div>
+        </div>
+        <div data-bind="foreach: debts">
+            <div class="row form-group">
                 <div class="col-xs-3">
-                    <h3>Amount</h3>
+                    <input class="form-control"  data-bind="value: amount" />
                 </div>
                 <div class="col-xs-2">
-                    <h3>Time (Years)</h3>
+                    <input class="form-control" data-bind="value: period" />
                 </div>
                 <div class="col-xs-2">
-                    <h3>Yearly Rate</h3>
+                    <input class="form-control" data-bind="value: rate" />
                 </div>
                 <div class="col-xs-3">
-                    <h3>Monthly Payment</h3>
+                    <input class="form-control" disabled="" data-bind="value: paymentFormatted" />
+                </div>
+                <div class="col-xs-1">
+                    <button class="btn btn-sm btn-danger" data-bind="click: $parent.removeDebt">X</button>
                 </div>
             </div>
-            <div data-bind="foreach: debts">
-                <div class="row form-group">
-                    <div class="col-xs-3">
-                        <input class="form-control"  data-bind="value: amount" />
-                    </div>
-                    <div class="col-xs-2">
-                        <input class="form-control" data-bind="value: period" />
-                    </div>
-                    <div class="col-xs-2">
-                        <input class="form-control" data-bind="value: rate" />
-                    </div>
-                    <div class="col-xs-3">
-                        <input class="form-control" disabled="" data-bind="value: paymentFormatted" />
-                    </div>
-                    <div class="col-xs-1">
-                        <button class="btn btn-sm btn-danger" data-bind="click: $parent.removeDebt">X</button>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary" data-bind="click: addDebt">Add Debt</button>
-        </form>
+        </div>
     </div>
     <div data-bind="morris: {type: 'Area',
                          data: debtsChart,

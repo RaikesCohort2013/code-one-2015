@@ -41,9 +41,9 @@
                 <button class="btn btn-primary example-button" data-bind="click: load401kExample">Load Example</button>
             </div>
         </div>
+        <a href="" data-bind="click: show401k, text: linkText401k"></a>
 		<p data-bind="visible: basic401kVisible">A 401(k) is typically offered by companies as a retirement savings option. A portion of your pre-tax salary each month will be deposited into a retirement account each month, and the company will typically match your investment. 401(k)s are very safe and reliable ways to save for retirement, especially because all deposits into a 401(k) account are tax deductible. Some employers offer contribution matching, but what does that mean? It means that if you put in more of your salary into your 401(k),
 		your employer will match the amount you put in (up to a certain % of your salary usually). Contribution matching is extremely beneficial and it is highly recommended to contribute as much as possible to your 401(k).</p>
-		<a href="" data-bind="click: show401k, text: linkText401k"></a>
 	</div>
     <hr/>
 	<div id="ira">
@@ -55,9 +55,10 @@
                 <button class="btn btn-primary example-button" data-bind="click: loadIRAExample">Load Example</button>
             </div>
         </div>
+        <a href="" data-bind="click: showBasicIra, text: linkTextIra"></a>
 		<div data-bind="visible: basicIraVisible">
 			<p>An IRA, or Individual Retirement Account, is very similar to a 401(k) in that they provide a tax-advantaged approach to saving for retirement. An IRA, however, provides a wider range of investment opportunities than a 401(k), giving the potential for greater returns.</p>
-			<a id="viewMoreIra" href="" data-bind="click: showMoreIra">Learn about types of IRAs</a>
+            <a id="viewMoreIra" href="" data-bind="click: showMoreIra">Learn about types of IRAs</a>
 			<div data-bind="visible: moreIraVisible">
 				<h4>Traditional IRA</h4>
 				<p>In a Traditional IRA, any contributions are tax-deductible, and the funds will grow tax-deferred until withdrawl. Because most retirees are in a lower tax bracket than they were before retirement, the withdrawls will be taxed at a lower rate than they would have been when deposited.</p>
@@ -69,7 +70,6 @@
 				<p>In a Rollover IRA, money is "rolled over" from another retirement plan. Rollovers include moving assets from an employer-sponsored plan, such as a 401(k)</p>
 			</div>
 		</div>
-		<a href="" data-bind="click: showBasicIra, text: linkTextIra"></a>
 	</div>
 	
 </div>
