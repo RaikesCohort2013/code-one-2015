@@ -32,3 +32,7 @@ hr {
 .btn-blue {
 	background-color: #0b6284;
 }
+
+.content {
+	opacity: 0;
+}
